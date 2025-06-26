@@ -30,4 +30,9 @@ class DomainService
     {
         return $this->repository->updateDomain($id, $data);
     }
+
+    public function deleteDomain($id)
+    {
+        return $this->repository->deleteDomain($id);
+    }
 }

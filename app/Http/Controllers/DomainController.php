@@ -32,4 +32,8 @@ class DomainController extends Controller
     public function update($id, UpdateDomainRequest $request){
         return response()->json($this->service->updateDomain($id, $request->validated()));
     }
+
+    public function delete($id){
+        return $this->service->deleteDomain($id);
+    }
 }
