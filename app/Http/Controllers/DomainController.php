@@ -33,7 +33,7 @@ class DomainController extends Controller
         return response()->json($this->service->updateDomain($id, $request->validated()));
     }
 
-    public function delete($id){
+    public function destroy($id){
         return $this->service->deleteDomain($id);
     }
 }

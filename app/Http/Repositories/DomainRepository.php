@@ -37,6 +37,7 @@ class DomainRepository implements DomainRepositoryInterface
     }
 
     public function deleteDomain($id){
-        return $this->model->delete($id);
+        $domain = $this->model->find($id);
+        return $domain->delete();
     }
 }

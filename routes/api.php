@@ -19,3 +19,4 @@ Route::get('domains', [DomainController::class, 'index']);
 Route::post('domains', [DomainController::class, 'store']);
 Route::get('domains/{id}', [DomainController::class, 'show']);
 Route::put('domains/{id}', [DomainController::class, 'update']);
+Route::delete('domains/{id}', [DomainController::class, 'destroy']);

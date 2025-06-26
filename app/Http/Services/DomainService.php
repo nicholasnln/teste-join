@@ -19,7 +19,12 @@ class DomainService
     }
 
     public function createDomain(array $data){
-        return $this->repository->createDomain($data);
+        try {
+            $domain = $this->repository->createDomain($data);
+            return $domain;
+        } catch (\Exception $exception){
+            throw new \Exception("Erro ao criar domínio: " . $exception->getMessage());
+        }
     }
 
     public function getDomain($id){
