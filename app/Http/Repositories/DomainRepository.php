@@ -25,12 +25,12 @@ class DomainRepository implements DomainRepositoryInterface
 
     public function getDomain($id)
     {
-        return $this->model->find($id);
+        return $this->model->findOrFail($id);
     }
 
     public function updateDomain($id, array $request)
     {
-        $domain = $this->model->find($id);
+        $domain = $this->model->findOrFail($id);
         $domain->update($request);
 
         return $domain;

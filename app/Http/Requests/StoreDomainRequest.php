@@ -22,7 +22,13 @@ class StoreDomainRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|unique:domains,name',
+            'name' => [
+                'required',
+                'string',
+                'unique:domains,name',
+                'regex:/^(?!:\/\/)([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,}$/'
+                ],
+
         ];
     }
 }

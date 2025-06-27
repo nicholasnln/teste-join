@@ -22,11 +22,18 @@ class DomainController extends Controller
 
     public function store(StoreDomainRequest $request)
     {
-        return response()->json($this->service->createDomain($request->validated()));
+        try{
+            return response()->json($this->service->createDomain($request->validated()));
+        } catch (\Exception $e){
+            return response()->json([
+                'error' => 'Erro ao cadastrar domínio',
+                'message' => $e->getMessage()], $e->getCode());
+        }
     }
 
     public function show($id){
-        return $this->service->getDomain($id);
+        $domain = $this->service->getDomain($id);
+        return response()->json($domain);
     }
 
     public function update($id, UpdateDomainRequest $request){
