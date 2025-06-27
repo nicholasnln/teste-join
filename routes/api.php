@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlockController;
 use App\Http\Controllers\DomainController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,6 @@ Route::post('domains', [DomainController::class, 'store']);
 Route::get('domains/{id}', [DomainController::class, 'show']);
 Route::put('domains/{id}', [DomainController::class, 'update']);
 Route::delete('domains/{id}', [DomainController::class, 'destroy']);
+
+Route::post('blocks', [BlockController::class, 'store']);
+Route::get('blocks', [BlockController::class, 'index']);
